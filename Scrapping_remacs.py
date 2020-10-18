@@ -5,6 +5,7 @@ import pandas as pd
 from google.colab import drive
 drive.mount('/gdrive/')
 
+#A Reddit instance is created and provided it with parameters like client_id , client_secret, password and a user_agent. These values are otained while creating an application on reddit
 reddit = praw.Reddit(client_id='C0NBhA1qhdkIAg',client_secret='FEHr1Wc9qQ4Ws_NSzQwfPiJQjp0',username='KushMetaheuristic',password='Mithai-1234',user_agent='DrAdams_Task3')
 api = PushshiftAPI(reddit)
 
