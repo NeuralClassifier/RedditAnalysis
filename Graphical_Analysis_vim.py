@@ -9,7 +9,6 @@ drive.mount('/gdrive/')
 
 #Importing the datasets
 vim_df=pd.read_csv('/gdrive/My Drive/DrAdams_Task3_Files/CSV/vim_finalDF.csv')
-vim_df.drop(['Unnamed: 0','Unnamed: 0.1'],axis=1,inplace=True)
 
 
 #Calculating the correlation using Heatmap
