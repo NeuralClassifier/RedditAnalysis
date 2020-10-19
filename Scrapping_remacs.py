@@ -30,7 +30,10 @@ total_awards_received=[]
 
 
 #starting from January (Month: j = 1)
-j=3
+
+#A loop iteration technique has been implied because I found that the number of post extraction in a single run is limited by the APIs (MAX 1000 posts in one go).
+#I have assumed that there can not be more than 1000 posts in a single day by any subreddit. So the loop iteration technique iterates daywise.
+j=1
 
 #The loop will iterate up to March: J=3
 while j <= 3:
