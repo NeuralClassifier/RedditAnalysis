@@ -3,7 +3,7 @@ import pandas as pd #used for importing, creating, saving, and manipulating data
 import seaborn as sns #used for ploting graphs
 import matplotlib.pyplot as plt #used for plotting graphs
 from statistics import mean #for calculating average
-drive.mount('/gdrive/')
+drive.mount('/gdrive/') #mounting google-drive
 
 
 #importing dataset with the posts from r/emacs
@@ -55,7 +55,7 @@ ax.plot(day,upvtAvg_emacs_jan, '-.r')
 ax.set_xlabel('Day in Jan')
 ax.set_ylabel('Upvote Frequency')
 plt.legend(['January'])
-plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteFreq_daywise_jan.png') #savig the image
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteFreq_daywise_jan.png') #saving the image
 plt.show()
 
 #r/emacs: UpVote Frequency change in February
