@@ -7,12 +7,208 @@ import numpy as np
 drive.mount('/gdrive/')
 
 
+#Importing the datasets
 vim_df=pd.read_csv('/gdrive/My Drive/DrAdams_Task3_Files/CSV/vim_finalDF.csv')
 vim_df.drop(['Unnamed: 0','Unnamed: 0.1'],axis=1,inplace=True)
 emacs_df=pd.read_csv('/gdrive/My Drive/DrAdams_Task3_Files/CSV/emacs_finalDF.csv')
 emacs_df.drop(['Unnamed: 0','Unnamed: 0.1'],axis=1,inplace=True)
 
 months = ['Jan', 'Feb', 'Mar']
+
+
+#r/vim: Total Awards Frequency change in January
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_vim_jan=[]
+day=[]
+janVim_totalawards = vim_df[vim_df['month']=='Jan']
+
+#iterating over the dates in January
+for i in range(1,32):
+  janvimTemp=janVim_totalawards[janVim_totalawards['day']==i]
+  janvimTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(janvimTemp)):
+    totalAwa_day.append(janvimTemp['total awards'][j])
+  totalAwarddsAvg_vim_jan.append(mean(totalAwa_day)) #Average awards daily
+  day.append(i)
+
+ax.plot(day,totalAwarddsAvg_vim_jan, '-.c')
+ax.set_xlabel('Day in Jan')
+ax.set_ylabel('Total Awards')
+plt.legend(['January'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_vim/TotalAwaFreq_daywise_jan.png')
+plt.show()
+
+#r/emacs: Total Awards Frequency change in January
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_emacs_jan=[]
+day=[]
+janEmacs_totalawards = emacs_df[emacs_df['month']=='Jan']
+
+#iterating over the dates in January
+for i in range(1,32):
+  janemacsTemp=janEmacs_totalawards[janEmacs_totalawards['day']==i]
+  janemacsTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(janemacsTemp)):
+    totalAwa_day.append(janemacsTemp['total awards'][j])
+  totalAwarddsAvg_emacs_jan.append(mean(totalAwa_day)) #Average awards daily
+  day.append(i)
+
+ax.plot(day,totalAwarddsAvg_emacs_jan, '-.c')
+ax.set_xlabel('Day in Jan')
+ax.set_ylabel('Total Awards')
+plt.legend(['January'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/TotalAwaFreq_daywise_jan.png')
+plt.show()
+
+#r/emacs & r/vim Total Awards comparison: January
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.plot(day,totalAwarddsAvg_vim_jan, '-r')
+ax.plot(day,totalAwarddsAvg_emacs_jan, '-b')
+ax.set_xlabel('Day in Jan')
+ax.set_ylabel('Total Awards')
+plt.legend(['r/vim','r/emacs'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/TotalAwaFreq_jan_emacsVim.png')
+plt.show()
+
+#r/vim: Total Awards Frequency change in February
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_vim_feb=[]
+day_feb=[]
+febVim_totalawards = vim_df[vim_df['month']=='Feb']
+
+#iterating over the dates in February
+for i in range(1,30):
+  febvimTemp=febVim_totalawards[febVim_totalawards['day']==i]
+  febvimTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(febvimTemp)):
+    totalAwa_day.append(febvimTemp['total awards'][j])
+  totalAwarddsAvg_vim_feb.append(mean(totalAwa_day)) #Average Awards Daily
+  day_feb.append(i)
+
+ax.plot(day_feb,totalAwarddsAvg_vim_feb, '-.c')
+ax.set_xlabel('Day in Feb')
+ax.set_ylabel('Total Awards')
+plt.legend(['February'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_vim/TotalAwaFreq_daywise_feb.png')
+plt.show()
+
+
+#r/emacs: Total Awards Frequency change in February
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_emacs_feb=[]
+day_feb=[]
+febEmacs_totalawards = emacs_df[emacs_df['month']=='Feb']
+
+#iterating over the dates in February
+for i in range(1,30):
+  febemacsTemp=febEmacs_totalawards[febEmacs_totalawards['day']==i]
+  febemacsTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(febemacsTemp)):
+    totalAwa_day.append(febemacsTemp['total awards'][j])
+  totalAwarddsAvg_emacs_feb.append(mean(totalAwa_day)) #Average awards daily
+  day_feb.append(i)
+
+ax.plot(day_feb,totalAwarddsAvg_emacs_feb, '-.c')
+ax.set_xlabel('Day in Feb')
+ax.set_ylabel('Total Awards')
+plt.legend(['February'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/TotalAwaFreq_daywise_feb.png')
+plt.show()
+
+#r/emacs & r/vim Total Awards comparison: February
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.plot(day_feb,totalAwarddsAvg_vim_feb, '-r')
+ax.plot(day_feb,totalAwarddsAvg_emacs_feb, '-b')
+ax.set_xlabel('Day in Feb')
+ax.set_ylabel('Total Awards')
+plt.legend(['r/vim','r/emacs'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/TotalAwaFreq_feb_emacsVim.png')
+plt.show()
+
+
+#r/vim: Total Awards Frequency change in March
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_vim_mar=[]
+day=[]
+marVim_totalawards = vim_df[vim_df['month']=='Mar']
+
+#iterating over the dates in March
+for i in range(1,32):
+  marvimTemp=marVim_totalawards[marVim_totalawards['day']==i]
+  marvimTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(marvimTemp)):
+    totalAwa_day.append(marvimTemp['total awards'][j])
+  totalAwarddsAvg_vim_mar.append(mean(totalAwa_day)) #Average awards daily
+  day.append(i)
+
+ax.plot(day,totalAwarddsAvg_vim_mar, '-.c')
+ax.set_xlabel('Day in Mar')
+ax.set_ylabel('Total Awards')
+plt.legend(['March'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_vim/TotalAwaFreq_daywise_mar.png')
+plt.show()
+
+
+#r/emacs: Total Awards Frequency change in March
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+totalAwarddsAvg_emacs_mar=[]
+day=[]
+marEmacs_totalawards = emacs_df[emacs_df['month']=='Mar']
+
+#iterating over the dates in March
+for i in range(1,30):
+  maremacsTemp=marEmacs_totalawards[marEmacs_totalawards['day']==i]
+  maremacsTemp.reset_index(drop=True,inplace=True)
+  totalAwa_day=[]
+  for j in range(len(maremacsTemp)):
+    totalAwa_day.append(maremacsTemp['total awards'][j])
+  totalAwarddsAvg_emacs_mar.append(mean(totalAwa_day)) #Average Awards Daily
+  day.append(i)
+
+ax.plot(day_feb,totalAwarddsAvg_emacs_mar, '-.c')
+ax.set_xlabel('Day in Mar')
+ax.set_ylabel('Total Awards')
+plt.legend(['March'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/TotalAwaFreq_daywise_mar.png')
+plt.show()
+
+
+#r/emacs & r/vim Total Awards comparison: March
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.plot(day,totalAwarddsAvg_vim_mar, '-r')
+ax.plot(day_feb,totalAwarddsAvg_emacs_mar, '-b')
+ax.set_xlabel('Day in Mar')
+ax.set_ylabel('Total Awards')
+plt.legend(['r/vim','r/emacs'])
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/TotalAwaFreq_mar_emacsVim.png')
+plt.show()
+
+
+#BarPlot of Total Awards comparison between r/vim and r/emacs
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+sub_reddits = ['r/vim','r/emacs']
+total_awards_count=[vim_df['total awards'].sum(),emacs_df['total awards'].sum()]
+ax.bar(sub_reddits,total_awards_count, color='orange')
+ax.set_xlabel('SubReddits')
+ax.set_ylabel('Total Awards in 3 months')
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/TotalAwaFreq_barPlot_emacsVim.png')
+plt.show()
+
 
 #r/vim: UpVote Frequency change in January
 fig = plt.figure()
@@ -62,6 +258,8 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteFreq_daywise
 plt.show()
 
 
+#r/emacs & r/vim Upvote Frequency comparison: January
+
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,upvtAvg_vim_jan, '-r')
@@ -70,30 +268,6 @@ ax.set_xlabel('Day in Jan')
 ax.set_ylabel('Upvote Frequency')
 plt.legend(['vim','emacs'])
 plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/UpvoteFreq_jan_emacsVim.png')
-plt.show()
-
-
-#r/vim: UpVote Frequency change in February
-fig = plt.figure()
-ax = fig.add_axes([0,0,1,1])
-upvtAvg_vim_feb=[]
-day_feb=[]
-febVim_upvote = vim_df[vim_df['month']=='Feb']
-
-for i in range(1,30):
-  febvimTemp=febVim_upvote[febVim_upvote['day']==i]
-  febvimTemp.reset_index(drop=True,inplace=True)
-  upvt_day=[]
-  for j in range(len(febvimTemp)):
-    upvt_day.append(febvimTemp['upvote count'][j])
-  upvtAvg_vim_feb.append(mean(upvt_day))
-  day_feb.append(i)
-
-ax.plot(day_feb,upvtAvg_vim_feb, '-.r')
-ax.set_xlabel('Day in Feb')
-ax.set_ylabel('Upvote Frequency')
-plt.legend(['February'])
-plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_vim/UpvoteFreq_daywise_feb.png')
 plt.show()
 
 
@@ -145,6 +319,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteFreq_daywise
 plt.show()
 
 
+#r/emacs & r/vim Upvote Frequency comparison: February
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day_feb,upvtAvg_vim_feb, '-r')
@@ -204,6 +379,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteFreq_daywise
 plt.show()
 
 
+#r/emacs & r/vim Upvote Frequency comparison: March
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,upvtAvg_vim_mar, '-r')
@@ -262,7 +438,7 @@ plt.legend(['January'])
 plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteRatio_daywise_jan.png')
 plt.show()
 
-
+#r/emacs & r/vim Upvote Ratio comparison: January
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,upvtRAvg_vim_jan, '-r')
@@ -322,6 +498,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteRatio_daywis
 plt.show()
 
 
+#r/emacs & r/vim Upvote Ratio comparison: February
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day_feb,upvtRAvg_vim_feb, '-r')
@@ -382,6 +559,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/UpvoteRatio_daywis
 plt.show()
 
 
+#r/emacs & r/vim Total Upvote Ratio comparison: March
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,upvtRAvg_vim_mar, '-r')
@@ -441,6 +619,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/commentFreq_jan.pn
 plt.show()
 
 
+#r/emacs & r/vim Comments Frequency comparison: January
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,cmmtAvg_vim_jan, '-r')
@@ -500,6 +679,7 @@ plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/commentFreq_feb.pn
 plt.show()
 
 
+#r/emacs & r/vim Comments comparison: February
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day_feb,cmmtAvg_vim_feb, '-r')
@@ -558,7 +738,7 @@ plt.legend(['March'])
 plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/r_emacs/commentFreq_mar.png')
 plt.show()
 
-
+#r/emacs & r/vim Comments Frequency comparison: March
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(day,cmmtAvg_vim_mar, '-r')
@@ -568,9 +748,4 @@ ax.set_ylabel('Comments Count')
 plt.legend(['vim','emacs'])
 plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/CommentsF_mar_emacsVim.png')
 plt.show()
-
-
-
-
-
 
