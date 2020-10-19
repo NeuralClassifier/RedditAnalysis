@@ -1,15 +1,15 @@
-import praw
-from psaw import PushshiftAPI
-import datetime as dt
-import pandas as pd
-from google.colab import drive
-drive.mount('/gdrive/')
+import praw #importing Python Reddit API Wrapper
+from psaw import PushshiftAPI #from Pushshift.io API Wrapper importing the API to extract the posts to search public reddit comments and submissions
+import datetime as dt # This is used to extract the time stamp
+import pandas as pd # this is used to create the dataframe
+from google.colab import drive # This is used to connect with the google drive to save the generated datasets
+drive.mount('/gdrive/') #Mounting Google Drive
 
 #A Reddit instance is created and provided it with parameters like client_id , client_secret, password and a user_agent. These values are otained while creating an application on reddit
 reddit = praw.Reddit(client_id='C0NBhA1qhdkIAg',client_secret='FEHr1Wc9qQ4Ws_NSzQwfPiJQjp0',username='KushMetaheuristic',password='Mithai-1234',user_agent='DrAdams_Task3')
 api = PushshiftAPI(reddit)
 
-subreddit = 'emacs'
+subreddit = 'emacs' # The name of the subreddit used
 
 #r/emacs
 
@@ -235,7 +235,7 @@ while j <= 3:
     j+=1 #INCREMENTING THE MONTH
     
     
-    #CONVERTING THE LISTS INTO INDIVIDUAL SINGLE-COLUMNED DATAFRAMES
+#CONVERTING THE LISTS INTO INDIVIDUAL SINGLE-COLUMNED DATAFRAMES
 
 id_df=pd.DataFrame(id,columns=['identifier'])
 title_df=pd.DataFrame(title,columns=['title'])
