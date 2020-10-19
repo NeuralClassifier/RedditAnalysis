@@ -1,10 +1,9 @@
 from google.colab import drive # This is used to connect with the google drive to save the generated datasets
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from statistics import mean
-import numpy as np
-drive.mount('/gdrive/')
+import pandas as pd #used for importing, creating, saving, and manipulating datasets
+import seaborn as sns #used for ploting graphs
+import matplotlib.pyplot as plt #used for plotting graphs
+from statistics import mean #for calculating average
+drive.mount('/gdrive/') #mounting google-drive
 
 
 #Importing the datasets
