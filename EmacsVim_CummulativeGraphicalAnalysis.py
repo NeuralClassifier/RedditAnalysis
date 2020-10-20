@@ -11,6 +11,17 @@ drive.mount('/gdrive/') #mounting google drive
 vim_df=pd.read_csv('/gdrive/My Drive/DrAdams_Task3_Files/CSV/vim_finalDF.csv')
 emacs_df=pd.read_csv('/gdrive/My Drive/DrAdams_Task3_Files/CSV/emacs_finalDF.csv')
 
+#Comparison Bar Plot: Number of Posts
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+sub_reddits = ['r/vim','r/emacs']
+total_awards_count=[len(vim_df),len(emacs_df)]
+ax.bar(sub_reddits,total_awards_count, color='cyan')
+ax.set_xlabel('SubReddits')
+ax.set_ylabel('Total Posts in 3 months')
+plt.savefig('/gdrive/My Drive/DrAdams_Task3_Files/PNG/Both/TotalPosts_barPlot_emacsVim.png')
+plt.show()
+
 months = ['Jan', 'Feb', 'Mar']
 
 
