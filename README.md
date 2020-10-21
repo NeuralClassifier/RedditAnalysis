@@ -14,3 +14,9 @@ For Installing [TextBlob](https://textblob.readthedocs.io/en/dev/)
 ```javascript
 pip install -U textblob
 ```
+
+# *Note
+Please use this code if the plot is getting saved with no axis
+```javascript
+matplotlib.pyplot.savefig(/.../,bbox_inches = "tight")
+```
